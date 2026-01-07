@@ -1,15 +1,249 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Anthera Makeovers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthera Makeovers | Premium Beauty & Bridal Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #fff0f5; }
-        h1 { color: #d63384; }
-        p { font-size: 1.2em; color: #555; }
+        /* --- CSS Variables & Global Styles --- */
+        :root {
+            --primary-rose: #8e2e4a;
+            --accent-gold: #c5a059;
+            --soft-pink: #fff0f5;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-rose);
+            margin-bottom: 15px;
+        }
+        h2 { font-size: 2.5rem; text-align: center; }
+        a { text-decoration: none; transition: 0.3s; }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-rose);
+            color: var(--white);
+            border-radius: 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border: 2px solid var(--primary-rose);
+        }
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-rose);
+        }
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+        section { padding: 60px 0; }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-container img {
+            height: 60px; /* Adjust as needed */
+            width: auto;
+        }
+        .contact-btn {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--white);
+        }
+        .contact-btn:hover { color: var(--accent-gold); }
+
+        /* --- Hero Section (Main 1) --- */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            background: url('main1.jpeg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+        }
+        .hero-overlay {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 0 10px 10px 0;
+            max-width: 500px;
+            margin-left: 5%;
+            border-left: 5px solid var(--primary-rose);
+        }
+        .hero h1 { font-size: 3rem; margin-top: 0; }
+        .hero p { font-size: 1.1rem; color: var(--text-dark); font-weight: 500; }
+
+        /* --- Services Gallery (6 Posters) --- */
+        .services-section { background: var(--soft-pink); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Feature Section (Main 2 - Preference: Why Choose Us) --- */
+        .feature-split {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .feature-image, .feature-text { flex: 1; }
+        .feature-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0 var(--soft-pink);
+        }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .feature-list li::before {
+            content: '🌸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-rose);
+        }
+
+        /* --- Spotlight Section (Main 3 - Preference: Bridal Focus) --- */
+        .spotlight {
+            background: linear-gradient(rgba(142, 46, 74, 0.8), rgba(142, 46, 74, 0.8)), url('main3.jpeg') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .spotlight h2 { color: var(--accent-gold); font-size: 3rem; }
+        .spotlight p { font-size: 1.3rem; max-width: 700px; margin: 20px auto; color: rgba(255,255,255,0.9); }
+        .btn-gold { background: var(--accent-gold); border-color: var(--accent-gold); color: var(--text-dark); }
+        .btn-gold:hover { color: var(--accent-gold); background: transparent; border-color: var(--accent-gold); }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+        }
+        footer p { margin: 10px 0; color: #999; }
+        footer h2 { color: var(--accent-gold); margin: 0; font-size: 1.8rem; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .hero { height: auto; padding: 60px 0; align-items: flex-end; }
+            .hero-overlay { margin: 20px; width: auto; border-radius: 10px; }
+            .hero h1 { font-size: 2rem; }
+            .feature-split { flex-direction: column; }
+            .feature-image img { box-shadow: 10px 10px 0 var(--soft-pink); }
+        }
     </style>
 </head>
 <body>
-    <h1>Anthera Makeovers</h1>
-    <p>Coming Soon to Changanacherry!</p>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Anthera Makeovers Logo">
+        </div>
+        <div>
+            <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" class="btn contact-btn">Book Appointment</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Where Beauty Blooms</h1>
+            <p>Premium Bridal Makeup, Advanced Skin Treatments, and Trendsetting Hair Styling in Changanacherry.</p>
+            <p>Experience the Anthera touch for your special day.</p>
+            <a href="#services" class="btn">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2>Our Signature Services</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="service1.jpeg" alt="Service Poster 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="service2.jpeg" alt="Service Poster 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="service3.jpeg" alt="Service Poster 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="service4.jpeg" alt="Service Poster 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="service5.jpeg" alt="Service Poster 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="service6.jpeg" alt="Service Poster 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="feature-split">
+            <div class="feature-image">
+                <img src="main2.jpeg" alt="Anthera Experience">
+            </div>
+            <div class="feature-text">
+                <h2>The Anthera Difference</h2>
+                <p>We believe in enhancing your natural beauty with a touch of elegance. Our studio offers a luxurious and hygienic environment where every detail is tailored to you.</p>
+                <ul class="feature-list">
+                    <li>Certified & Experienced Artists</li>
+                    <li>Premium International Brands</li>
+                    <li>Personalized Consultation</li>
+                    <li>Relaxing & Hygienic Ambiance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="spotlight">
+        <h2>Your Dream Bridal Look</h2>
+        <p>From traditional to contemporary, we craft the perfect look for your big day. Let's make your wedding moments unforgettable.</p>
+        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=I'm%20interested%20in%20a%20bridal%20consultation" class="btn btn-gold">Schedule Bridal Consultation</a>
+    </section>
+
+    <footer>
+        <h2>Anthera Makeovers</h2>
+        <p>Changanacherry, Kerala</p>
+        <p>© 2026 All Rights Reserved.powered By MaxEfex</p>
+    </footer>
+
 </body>
 </html>
