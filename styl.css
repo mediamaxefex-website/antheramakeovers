@@ -1,131 +1,107 @@
-/* --- Anthera Makeovers: Black, Gold, & White Theme --- */
+/* --- Anthera Makeovers: Corrected Black & Gold Theme --- */
 :root {
     --gold: #d4af37;
     --black: #000000;
     --white: #ffffff;
-    --dark-gray: #1a1a1a;
 }
 
 body {
     background-color: var(--black);
     color: var(--white);
     margin: 0;
+    padding: 0;
     font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Header & Logo */
+/* Header - Logo Size Fix */
 header {
     background-color: var(--black);
-    padding: 15px 5%;
+    padding: 10px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--gold);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 .logo-container img {
-    height: 60px;
+    height: 50px; /* Controlled logo height */
     width: auto;
 }
 
 .social-links a {
     color: var(--gold);
-    font-size: 1.4rem;
-    margin-left: 15px;
-    transition: 0.3s;
+    font-size: 1.2rem;
+    margin-left: 10px;
 }
 
-/* Mobile Fix: Stack Hero Image and Text */
+/* Hero Section - Image and Text Scaling */
 .hero {
     display: flex;
     flex-direction: column;
-    background-color: var(--black);
+    align-items: center;
 }
 
 .hero-image {
     width: 100%;
-    height: auto;
-    display: block;
+    max-height: 500px; /* Prevents the image from being too tall */
+    object-fit: cover;
 }
 
 .hero-text {
-    padding: 40px 20px;
-    background: var(--black);
+    padding: 30px 20px;
     text-align: center;
+    background: var(--black);
+    width: 100%;
 }
 
 .hero-text h1 {
-    font-family: 'Playfair Display', serif;
     color: var(--gold);
-    font-size: 2.2rem;
-    margin: 0 0 15px 0;
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
     text-transform: uppercase;
 }
 
-/* Gold Button */
+.hero-text p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Button Fix - Making it Visible and Clickable */
 .btn-call {
     background-color: var(--gold);
     color: var(--black);
-    padding: 12px 35px;
+    padding: 12px 25px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 50px;
+    border-radius: 5px;
     display: inline-block;
-    margin-top: 20px;
+    border: none;
+    cursor: pointer;
 }
 
-/* Service Gallery */
-.gallery-title {
-    color: var(--gold);
-    text-align: center;
-    padding: 40px 0 10px;
-    font-family: 'Playfair Display', serif;
-}
-
+/* Gallery - Image Size Control */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-    padding: 20px 5% 50px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 20px;
 }
 
 .gallery img {
     width: 100%;
-    border-radius: 8px;
+    height: 200px;
+    object-fit: cover;
     border: 1px solid #333;
+    border-radius: 5px;
 }
 
-/* Map Section */
-.map-container {
-    padding: 50px 5%;
-    text-align: center;
-    background: var(--dark-gray);
-}
-
-.map-container h2 {
+/* Ticker Fix */
+.ticker-wrap {
+    background-color: #1a1a1a;
     color: var(--gold);
-}
-
-iframe {
-    width: 100%;
-    height: 400px;
-    border: 0;
-    border-radius: 15px;
-    margin-top: 20px;
-    filter: invert(90%) hue-rotate(180deg); /* Makes map dark to match theme */
-}
-
-/* Footer */
-footer {
-    background: var(--black);
-    color: var(--white);
-    text-align: center;
-    padding: 40px 20px;
+    padding: 10px 0;
     border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    font-weight: bold;
 }
-
-footer b { color: var(--gold); }
