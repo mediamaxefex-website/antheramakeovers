@@ -1,20 +1,16 @@
-/* --- Anthera Makeovers: Corrected Black & Gold Theme --- */
+/* --- Anthera Makeovers: Gallery & Centering Fix --- */
 :root {
     --gold: #d4af37;
     --black: #000000;
-    --white: #ffffff;
 }
 
 body {
     background-color: var(--black);
-    color: var(--white);
+    color: #ffffff;
     margin: 0;
-    padding: 0;
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
 }
 
-/* Header - Logo Size Fix */
 header {
     background-color: var(--black);
     padding: 10px 5%;
@@ -24,84 +20,73 @@ header {
     border-bottom: 1px solid var(--gold);
 }
 
-.logo-container img {
-    height: 50px; /* Controlled logo height */
-    width: auto;
-}
+header img { height: 60px; width: auto; }
 
-.social-links a {
-    color: var(--gold);
-    font-size: 1.2rem;
-    margin-left: 10px;
-}
-
-/* Hero Section - Image and Text Scaling */
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.hero-image {
+.hero img {
     width: 100%;
-    max-height: 500px; /* Prevents the image from being too tall */
-    object-fit: cover;
+    max-height: 500px;
+    object-fit: contain; /* Ensures main1.jpeg is not cropped */
+    background: var(--black);
 }
 
 .hero-text {
     padding: 30px 20px;
     text-align: center;
-    background: var(--black);
-    width: 100%;
 }
 
-.hero-text h1 {
-    color: var(--gold);
-    font-size: 1.8rem;
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
-}
+.hero-text h1 { color: var(--gold); text-transform: uppercase; }
 
-.hero-text p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-/* Button Fix - Making it Visible and Clickable */
 .btn-call {
     background-color: var(--gold);
-    color: var(--black);
-    padding: 12px 25px;
+    color: #000;
+    padding: 12px 30px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
     display: inline-block;
-    border: none;
-    cursor: pointer;
 }
 
-/* Gallery - Image Size Control */
+/* --- Gallery Fix: Same Width, No Cropping --- */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
     padding: 20px;
+}
+
+.gallery-item {
+    width: 100%; /* Default for mobile */
+    max-width: 350px; /* Aligns with service3 width style */
 }
 
 .gallery img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto; /* Disables cropping, keeps natural height */
     border: 1px solid #333;
-    border-radius: 5px;
+    border-radius: 8px;
+    display: block;
 }
 
-/* Ticker Fix */
-.ticker-wrap {
-    background-color: #1a1a1a;
-    color: var(--gold);
-    padding: 10px 0;
+/* --- Centering Last Portion --- */
+.map-container, footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--black);
+}
+
+.map-container h2 { color: var(--gold); }
+
+iframe {
+    width: 100%;
+    max-width: 800px; /* Centers the map visually */
+    height: 350px;
+    border-radius: 15px;
+    border: 1px solid var(--gold);
+    margin: 20px auto;
+    display: block;
+}
+
+footer {
     border-top: 1px solid var(--gold);
-    border-bottom: 1px solid var(--gold);
-    font-weight: bold;
 }
